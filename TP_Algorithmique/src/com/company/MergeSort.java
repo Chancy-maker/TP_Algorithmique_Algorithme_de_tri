@@ -59,34 +59,6 @@ public class MergeSort {
      *
      * @param list
      */
-   /* public static LinkedList[] decomposition(LinkedList<Integer> list) {
-        LinkedList<Integer> list1 = new LinkedList<>();
-        LinkedList<Integer> list2 = new LinkedList<>();
-        LinkedList[] tab = new LinkedList[2];
-
-
-        if (list.size() % 2 ==0){
-            for (int i = 0 ; i < list.size() /2; i++){
-                list1.add(list.get(i));
-            }
-            for (int j = 0 ; j < list.size() /2; j++){
-                list2.add(list.get((list.size()/2) + j));
-            }
-        }
-        else if(list.size() % 2 !=0){
-            for (int i = 0 ; i < (list.size() - 1) /2; i++){
-                list1.add(list.get(i));
-            }
-            for (int j = 0 ; j <= (list.size() - 1 )/2; j++){
-                list2.add(list.get((list.size() - 1) /2 + j));
-            }
-
-        }
-        tab[0] = list1;
-        tab[1] = list2;
-        return tab;
-    }*/
-
     public static LinkedList[] decomposition(LinkedList<Integer> list){
         LinkedList<Integer> list1 = new LinkedList<>();
         LinkedList<Integer> list2 = new LinkedList<>();
