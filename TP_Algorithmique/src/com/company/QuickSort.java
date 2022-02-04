@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
+
 public class QuickSort {
 
-    private static LinkedList<Integer> generated_suite;
+    public static ArrayList<Integer> getGenerated_suite() {
+        return generated_suite;
+    }
+
+    private static ArrayList<Integer> generated_suite;
 
 
     public QuickSort(int minimum_value, int maximum_value, int total_value_number){
@@ -20,8 +25,8 @@ public class QuickSort {
      * @param total_value_number
      * @return suite trié
      */
-    public LinkedList<Integer> suite_generator(int minimum_value, int maximum_value, int total_value_number) {
-        LinkedList<Integer> suite = new LinkedList<>();
+    public ArrayList<Integer> suite_generator(int minimum_value, int maximum_value, int total_value_number) {
+        ArrayList<Integer> suite = new ArrayList<>();
         Random rand = new Random();
         int value_generated;
         for (int i = 0; i < total_value_number; i++) {
@@ -32,15 +37,18 @@ public class QuickSort {
     }
 
     /**
-     *
-     * @param array
+     *  @param array
      * @param indexfirstElement
      * @param indexlastElemnt
      */
-    public static void quickSortApplication(ArrayList<Integer> array,int indexfirstElement, int indexlastElemnt){
+    public static void quickSortApplication(ArrayList<Integer> array, int indexfirstElement, int indexlastElemnt){
         if(indexfirstElement < indexlastElemnt) {
-            int pivot = array.get(0);
-            int pivotPosition = partition(array,indexfirstElement,indexlastElemnt,pivot);
+            int pivot = array.get((indexlastElemnt-indexfirstElement)/2);
+
+
+            int pivotPosition = partition(array,indexfirstElement,indexlastElemnt,(indexlastElemnt-indexfirstElement)/2);
+
+
             quickSortApplication(array,indexfirstElement,pivotPosition - 1);
             quickSortApplication(array,pivotPosition + 1 ,indexlastElemnt);
 
@@ -56,25 +64,21 @@ public class QuickSort {
      * @return
      */
     public static int partition(ArrayList<Integer> array, int indexFirstElemnt, int indexLastElemnt,int pivot){
-        int i = 0;
-        int j = 0;
-        int k = indexLastElemnt;
-        while (i<=k) {
-            if (array.get(i) == pivot) {
-                i += 1;
-            }
-            if (array.get(i) > pivot) {
-                swap(array, i, k);
-                k -= 1;
-            }
-            if (array.get(i) < pivot) {
+        swap(array,pivot,indexLastElemnt);
+        int j = indexFirstElemnt;
+        for (int i = 0; i<=indexLastElemnt-1; i++){
+            if (array.get(i)<= array.get(indexLastElemnt)) {
                 swap(array, i, j);
                 j += 1;
-                i += 1;
             }
         }
+        swap(array,indexLastElemnt,j);
+        System.out.println(j);
         return j;
+
     }
+
+
 
     /**
      * swap permet de permet permuter la position de deux élément dans une liste
@@ -86,6 +90,12 @@ public class QuickSort {
         int temp = suite.get(i);
         suite.set(i,suite.get(j));
         suite.set(j,temp);
+    }
+    /**
+     * print permet d'affichier la liste d'entier trié
+     */
+    public void print () {
+        System.out.println(generated_suite.toString());
     }
 
 

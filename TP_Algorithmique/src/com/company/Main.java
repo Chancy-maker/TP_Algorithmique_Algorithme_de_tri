@@ -9,7 +9,7 @@ import static com.company.BubbleSort.bubbleSortApplication;
 import static com.company.BubbleSort.suite_generator;
 import static com.company.MergeSort.decomposition;
 import static com.company.MergeSort.mergeSortApplication;
-import static com.company.QuickSort.quickSortApplication;
+import static com.company.QuickSort.*;
 
 
 public class Main {
@@ -21,19 +21,21 @@ public class Main {
         //bubbleSortApplication(b.getGenerated_suite());
         //b.print();
 
-        MergeSort m = new MergeSort(0,15,15);
-        m.print();
-        LinkedList<Integer> m1 = mergeSortApplication(m.getGeneratedSuite());
-        System.out.println(m1);
+        //MergeSort m = new MergeSort(0,15,15);
+        //m.print();
+        //LinkedList<Integer> m1 = mergeSortApplication(m.getGeneratedSuite());
+        //System.out.println(m1);
 
 
 
 
 
-        //ArrayList<Integer> list = suite_generator(0,15, 10);
-        //System.out.println(list);
-        //quickSortApplication(list, 0 , list.size() - 1);
-        //System.out.println(list);
+
+        QuickSort q = new QuickSort(0,10,10);
+        q.print();
+        quickSortApplication(q.getGenerated_suite(),0,q.getGenerated_suite().size()-1);
+        q.print();
+
 
     }
 }
